@@ -11,8 +11,8 @@ const itemRenaming = (name, type) => {
   if(!name.includes(' - ')) {
     let nameArr = name.split('.'), tempArr = [], finalArr = [], suffix = '',
         hit = false, hasYear = false,
-        stoppers = ['WEBRip', 'Xvid', 'DivX', '720p', '1080p', '1080i', 'PDTV', 'HDTV', 'BluRay'],
-        prepArr = ['as', 'at', 'by', 'for', 'from', 'in', 'onto', 'of', 'on', 'to', 'the', 'with', 'via'];
+        stoppers = ['WEBRip', 'Xvid', 'DivX', '720p', '1080p', '1080i', 'PDTV', 'HDTV', 'BluRay', 'BDRip'],
+        prepArr = ['as', 'at', 'by', 'for', 'from', 'in', 'onto', 'of', 'on', 'to', 'the', 'with', 'via', 'vs'];
 
     // In case file/folder name is separated by space instead of dot
     if(nameArr.length === 1) {
@@ -71,8 +71,6 @@ const itemRenaming = (name, type) => {
     if(!hasYear) {
       finalArr.splice(1, 0, '-');
     };
-
-    // finalArr[2] = finalArr[2][0].toUpperCase() + finalArr[2].substr(1);
 
     // finalArr should be in this sequence: YEAR,-,TITLE
     return finalArr.join(' ') + '.' + suffix;

@@ -1,5 +1,5 @@
 // import firebase from 'firebase';
-let firebase = require('firebase');
+// const firebase = require('firebase');
 
 const config = {
     apiKey: "AIzaSyDM7aH-HGeu6e0F6IKjgy0gjeoeTqkLGOc",
@@ -13,21 +13,18 @@ const config = {
 firebase.initializeApp(config);
 
 let authPromise = firebase.auth().signInAnonymously().catch(error => {
-    // console.log(error);
     // Handle Errors here.
     let errorCode = error.code;
     let errorMessage = error.message;
-    // ...
 });
 
 authPromise.then(() => {
     firebase.database().ref().child('object').set({
-        type: '265',
-        publish: '357'
+        type: '++++++',
+        publish: '++++++'
     });
-    
     // firebase.auth().signOut();
-}, (reason) => {
+}, reason => {
     console.log(reason);
 });
 
@@ -44,29 +41,8 @@ firebase.auth().onAuthStateChanged(user => {
     }
 });
 
-// firebase.database().ref().child('object').set({
-//     type: '3.14',
-//     publish: '159'
-// });
-
 // let dbRoot = firebase.database().ref();
 
 // dbRoot.on('value', snap => {
 //     console.log(JSON.stringify(snap.val(), null, 3));
 // });
-
-// const pushData = () => {
-//     firebaseConn.database().ref().child('phantomzone-leon').child('movies').set({
-//         type: 'Documentary'
-//     })
-// }
-
-// pushData();
-
-// let message = {text: 'hey', timestamp: new Date().toString()},
-//     ref = firebaseConn.database().ref(),
-//     logsRef = ref.child('logs'),
-//     messagesRef = ref.child('messages'),
-//     messageRef = messagesRef.push(message);
-
-// logsRef.child(messageRef.key).set(message);
