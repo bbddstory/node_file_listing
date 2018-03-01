@@ -1,6 +1,6 @@
 "use strict";
 
-let fs = require('fs');
+const fs = require('fs');
 
 const recursiveListing = (dir, filelist) => {
   fs = fs || require('fs');

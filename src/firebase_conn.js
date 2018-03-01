@@ -1,4 +1,6 @@
-//const firebase = require('firebase');
+'use strict';
+
+const firebase = require('firebase');
 
 const config = {
     apiKey: "AIzaSyDM7aH-HGeu6e0F6IKjgy0gjeoeTqkLGOc",
@@ -19,8 +21,8 @@ let authPromise = firebase.auth().signInAnonymously().catch(error => {
 
 authPromise.then(() => {
     firebase.database().ref().child('object').set({
-        type: '++++++',
-        publish: '++++++'
+        type: '------',
+        publish: '======'
     });
     // firebase.auth().signOut();
 }, reason => {

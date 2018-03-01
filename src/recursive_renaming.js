@@ -1,6 +1,6 @@
 "use strict";
 
-let fs = require('fs');
+const fs = require('fs');
 // import fs from 'fs';
 
 // fs.rename(dir + '/' + file, dir + '/' + 'BBC - Timeshift', (err) => {
