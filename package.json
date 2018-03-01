@@ -1,0 +1,22 @@
+{
+  "name": "node_file_listing",
+  "version": "1.0.0",
+  "description": "File listing and management using NodeJS",
+  "main": "file_listing.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbddstory/node_file_listing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bbddstory/node_file_listing/issues"
+  },
+  "homepage": "https://github.com/bbddstory/node_file_listing#readme",
+  "dependencies": {
+    "firebase": "^4.10.1"
+  }
+}
