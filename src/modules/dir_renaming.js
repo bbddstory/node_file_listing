@@ -1,11 +1,6 @@
 "use strict";
 
-const fs = require('fs');
-// import fs from 'fs';
-
-// fs.rename(dir + '/' + file, dir + '/' + 'BBC - Timeshift', (err) => {
-//   if (err) throw err;
-// });
+import fs from 'fs';
 
 const itemRenaming = (name, type) => {
   if(!name.includes(' - ')) {
@@ -80,7 +75,7 @@ const itemRenaming = (name, type) => {
 };
 
 const recursiveListing = (dir, filelist) => {
-  fs = fs || require('fs');
+  // fs = fs || require('fs');
   let files = fs.readdirSync(dir);
   filelist = filelist || [];
 
