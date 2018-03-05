@@ -1,30 +1,29 @@
 "use strict";
 
-export default function dirFilter(filelist) {
-    let templist = [],
-        valid = true,
-        startsWith = ['SYNO'],
-        endsWith = ['.txt', '.ini', '.cfg', '.js', '.db', 'SynoEAStream'];
+export default function dirFilter(file) {
+    file = file.toLowerCase() || '';
 
-    for (let i in filelist) {
-        for (let j in startsWith) {
-            if (filelist[i].startsWith(startsWith[j])) {
-                valid = false;
-            }
-        };
+    let startsWith = ['SYNO', '#', '_'],
+        equalsTo = ['Anime', 'Misc', 'TV Series', 'The Grand Tour', 'Subs'],
+        endsWith = ['.txt', '.ini', '.cfg', '.db', 'SynoEAStream'];
 
-        for (let k in endsWith) {
-            if (filelist[i].endsWith(endsWith[k])) {
-                valid = false;
-            }
-        };
-
-        if (valid) {
-            templist.push(filelist[i]);
-        };
-
-        valid = true;
+    for (let i in startsWith) {
+        if (file.startsWith(startsWith[i].toLowerCase())) {
+            return false
+        }
     };
 
-    return templist;
-}
+    for (let j in equalsTo) {
+        if (file === equalsTo[j].toLowerCase()) {
+            return false
+        }
+    };
+
+    for (let k in endsWith) {
+        if (file.endsWith(endsWith[k].toLowerCase())) {
+            return false
+        }
+    };
+
+    return true;
+};

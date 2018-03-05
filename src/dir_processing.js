@@ -1,17 +1,12 @@
 "use strict";
 
 import fs from 'fs';
-import recursiveListing from './modules/recursive_listing';
-import dirFilter from './modules/dir_filter';
+import dirTraversing from './modules/dir_traversing';
 
-let recursivelist = recursiveListing('Z:\\');
-let finallist = dirFilter(recursivelist);
+// process.argv.forEach((val, index) => {
+//   console.log(`${index}: ${val}`);
+// });
 
-for (let i in finallist) {
-  fs.appendFile('../output/file_list.txt', finallist[i] + '\n', (err) => {
-    if (err) throw err;
-  });
-}
+dirTraversing(process.argv[2]);
 
-console.log('\n-- Listing completed.');
-console.log('-- ' + finallist.length + ' files in total.\n');
+console.log('\n-- Completed.');
