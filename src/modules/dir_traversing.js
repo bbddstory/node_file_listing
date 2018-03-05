@@ -15,7 +15,7 @@ export default function dirTraversing(dir) {
             hasSubdir = true;
             break;
         }
-    };
+    }
 
     /**
      * If all items in current directory are files, then it's a leaf, in
@@ -29,7 +29,7 @@ export default function dirTraversing(dir) {
      */
     if (!hasSubdir) {
         return true
-    };
+    }
 
     /**
      * Process items in the current directory
@@ -44,17 +44,29 @@ export default function dirTraversing(dir) {
                 /** (corresponding to 'return true' from above)
                  * Path "dir + '/' + files[i]" has no subdirectory, which means the current
                  * directory (files[i]) is a leaf, then process current directory's name.
+                 * 
+                 * dirRenaming returns the new folder name to update the current files[i],
+                 * Otherwise the folder path will no longer be available, which will
+                 * cause no such file error.
                  */
-                dirRenaming(dir, files[i])
+                files[i] = dirRenaming(dir, files[i])
             }
-        } else {
+        }
+
+        if (fs.statSync(dir + '/' + files[i]).isFile()) {
             /**
              * The current item is a FILE, move it in a folder with the same, only
              * without the extension (suffix). Then process the folder name.
              */
             let folderName = dirCreation(dir, files[i]);
-            // Rename the folder, always keep the file with it's original name for reference.
-            dirRenaming(dir, folderName)
+            /**
+             * Rename the folder, keep the file with it's original name for reference.
+             * 
+             * dirRenaming returns the new folder name to update the current files[i],
+             * Otherwise the folder path will no longer be available, which will
+             * cause no such file error.
+             */
+            files[i] = dirRenaming(dir, folderName);
         }
-    };
-};
+    }
+}

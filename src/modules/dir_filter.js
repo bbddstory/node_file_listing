@@ -11,19 +11,19 @@ export default function dirFilter(file) {
         if (file.startsWith(startsWith[i].toLowerCase())) {
             return false
         }
-    };
+    }
 
     for (let j in equalsTo) {
         if (file === equalsTo[j].toLowerCase()) {
             return false
         }
-    };
+    }
 
     for (let k in endsWith) {
         if (file.endsWith(endsWith[k].toLowerCase())) {
             return false
         }
-    };
+    }
 
     return true;
-};
+}

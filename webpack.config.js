@@ -3,10 +3,11 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    list_upload: [
+    webpack_compile: [
       // 'xmlhttprequest',
       // 'firebase',
-      './src/firebase_conn.js'
+      // './src/firebase_conn.js'
+      './src/dir_processing.js'
     ]
   },
   // Enable sourcemaps for debugging webpack's output.
