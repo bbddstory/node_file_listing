@@ -1,0 +1,134 @@
+{
+    "status": "false",
+    "message": "Movie not found!"
+}
+
+{
+    "imdb_id": "tt0114814",
+    "title": "The Usual Suspects",
+    "year": "1995",
+    "rated": "M18",
+    "released": "15 September 1995 (USA)",
+    "runtime": "106 min",
+    "genre": "Crime, Drama, Mystery",
+    "director": "Bryan Singer",
+    "writers": "Christopher McQuarrie",
+    "actors": "Kevin Spacey , Gabriel Byrne , Chazz Palminteri",
+    "plot": "Following a truck hijack in New York, five conmen are arrested and brought together for questioning. As none of them are guilty, they plan a revenge operation against the police. The operation goes well, but then the influence of a legendary mastermind criminal called Keyser Söze is felt. It becomes clear that each one of them has wronged Söze at some point and must pay back now. The payback job leaves 27 men dead in a boat explosion, but the real question arises now: Who actually is Keyser Söze?",
+    "country": "USA, Germany",
+    "language": "English, Hungarian, Spanish, French",
+    "metascore": "77",
+    "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+    "rating": "8.6",
+    "votes": "795,996",
+    "budget": "$6,000,000",
+    "opening_weekend": "N/A",
+    "gross": "$23,272,306",
+    "production": "PolyGram Filmed Entertainment, Spelling Films International, Blue Parrot",
+    "type": "movie",
+    "status": "true"
+}
+
+{
+    "imdb_id": "tt0116209"
+    "title": "The English Patient"
+    "year": "1996"
+    "rated": "R(A)"
+    "released": "27 February 1997 (Singapore)"
+    "runtime": "162 min"
+    "genre": "Drama, Romance, War"
+    "director": "Anthony Minghella"
+    "writers": "Michael Ondaatje  (novel), Anthony Minghella  (screenplay)"
+    "actors": "Ralph Fiennes , Juliette Binoche , Willem Dafoe"
+    "plot": "October 1944 in war torn Italy. Hana, a French-Canadian nurse working in a mobile army medical unit, feels like everything she loves in life dies on her. Because of the difficulty traveling and the dangers, especially as the landscape is still heavily booby-trapped with mines, Hana volunteers to stay behind at a church to care solely for a dying semi-amnesiac patient, who is badly burned and disfigured. She agrees to catch up to the rest of the unit after he dies. All the patient remembers is that he is English and that he is married. Their solitude is disrupted with the arrival at the church of fellow Canadian David Caravaggio, part of the Intelligence Service, who is certain that he knows the patient as a man who cooperated with the Germans. Caravaggio believes that the patient's memory is largely in tact and that he is running away from his past, in part or in its entirety. The patient does open up about his past, all surrounding his work as a cartographer in North Africa, which ..."
+    "country": "USA, UK"
+    "language": "English, German, Italian, Arabic"
+    "metascore": "87"
+    "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BOTkxZTdkNTQtM2QwOS00NzRlLWEyMGItYTcxOTE4NTgyNGVhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
+    "rating": "7.4"
+    "votes": "150,130"
+    "budget": "$27,000,000"
+    "opening_weekend": "$278,439                (USA)"
+    "gross": "$78,651,430"
+    "production": "Miramax, Tiger Moth Productions"
+    "type": "movie"
+    "status": "true"
+}
+
+{
+    "imdb_id": "tt5693178"
+    "title": "The Shape of Water"
+    "year": "2017"
+    "rated": "R"
+    "released": "8 December 2017 (USA)"
+    "runtime": "0"
+    "genre": "Adventure, Drama, Fantasy"
+    "director": "Guillermo del Toro"
+    "writers": "Guillermo del Toro  (screenplay), Vanessa Taylor  (screenplay)"
+    "actors": "Michael Stuhlbarg , Michael Shannon , Doug Jones"
+    "plot": "An other-worldly fairy tale, set against the backdrop of Cold War era America circa 1963. In the hidden high-security government laboratory where she works, lonely Elisa (Sally Hawkins) is trapped in a life of silence and isolation. Elisa's life is changed forver when she and co-worker Zelda (Octavia Spencer) discover a secret classified experiment."
+    "country": "USA"
+    "language": "English"
+    "metascore": "0"
+    "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BYzJjZTJhYWMtYzg0Ny00MGY0LWJlNjAtZGRmNzBjMDczZWU4XkEyXkFqcGdeQXVyNTk1MzcwNTI@._V1_UY268_CR43,0,182,268_AL_.jpg"
+    "rating": "0"
+    "votes": "0"
+    "budget": "N/A"
+    "opening_weekend": "N/A"
+    "gross": "N/A"
+    "production": "Bull Productions, Fox Searchlight Pictures"
+    "type": "movie"
+    "status": "true"
+}
+
+{
+    "imdb_id": "tt3501632"
+    "title": "Thor: Ragnarok"
+    "year": "2017"
+    "rated": ""
+    "released": "3 November 2017 (USA)"
+    "runtime": "0"
+    "genre": "Action, Adventure, Fantasy"
+    "director": "Taika Waititi"
+    "writers": "Craig Kyle  (story by), Christopher Yost  (story by)"
+    "actors": "Chris Hemsworth , Tom Hiddleston , Cate Blanchett"
+    "plot": "Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the destruction of his homeworld and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela."
+    "country": "USA"
+    "language": "English"
+    "metascore": "0"
+    "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMjMyNDkzMzI1OF5BMl5BanBnXkFtZTgwODcxODg5MjI@._V1_UX182_CR0,0,182,268_AL_.jpg"
+    "rating": "0"
+    "votes": "0"
+    "budget": "N/A"
+    "opening_weekend": "N/A"
+    "gross": "N/A"
+    "production": "Marvel Entertainment, Marvel Studios, Walt Disney Pictures"
+    "type": "movie"
+    "status": "true"
+}
+
+{
+    "imdb_id": "tt5934934"
+    "title": "Inception"
+    "year": "2017"
+    "rated": ""
+    "released": "28 July 2016 (USA)"
+    "runtime": "0"
+    "genre": "Drama"
+    "director": ""
+    "writers": ""
+    "actors": ""
+    "plot": ""
+    "country": ""
+    "language": ""
+    "metascore": "0"
+    "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BNTc1NjM4NjctZDcwMy00YjVjLThlY2MtMTFkMDE4YjcwMTJkXkEyXkFqcGdeQXVyMjIxNTEyNDQ@._V1_UY268_CR110,0,182,268_AL_.jpg"
+    "rating": "0"
+    "votes": "0"
+    "budget": "N/A"
+    "opening_weekend": "N/A"
+    "gross": "N/A"
+    "production": ""
+    "type": "episode"
+    "status": "true"
+  }

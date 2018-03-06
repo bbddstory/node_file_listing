@@ -1,6 +1,7 @@
 'use strict';
 
-const firebase = require('firebase');
+import firebase from 'firebase';
+import randomIMDB from 'imdbapi';
 
 const config = {
     apiKey: "AIzaSyDM7aH-HGeu6e0F6IKjgy0gjeoeTqkLGOc",
@@ -10,20 +11,55 @@ const config = {
     storageBucket: "phantomzone-leon.appspot.com",
     messagingSenderId: "885937044869"
 };
+const email = 'bbddstory@gmail.com';
+const password = 'LEON314@firebase';
 
 firebase.initializeApp(config);
 
-let authPromise = firebase.auth().signInAnonymously().catch(error => {
+let authPromise = firebase.auth().signInWithEmailAndPassword(email, password).catch(error => {
     // Handle Errors here.
     let errorCode = error.code;
     let errorMessage = error.message;
 });
 
 authPromise.then(() => {
-    firebase.database().ref().child('object').set({
-        type: '------',
-        publish: '======'
-    });
+    let imdb = new randomIMDB('VBjlW8MCQh32XXubjUKYLGu3fiIFkD');
+    randomIMDB(console.log);
+
+    // firebase.database().ref('Documentaries').once('value').then(function (snapshot) {
+    //     let value = snapshot.val();
+    //     console.log(value);
+
+    //     process.exit(-1);
+    // });
+
+    // firebase.database().ref('Movies').orderByChild("rating").equalTo("8.6").once('value').then(function (snapshot) {
+    //     let value = snapshot.val();
+    //     console.log(value);
+
+    //     process.exit(-1);
+    // });
+
+    let obj = {
+        "2016 - XXXXXXXXXXXXXXXX": {
+            "title": "2016 - Dawson City Frozen Time",
+            "type": "documentary",
+            "status": "true"
+        }
+    };
+
+    let inner = {
+        "title": "2016 - Dawson City Frozen Time",
+        "type": "documentary",
+        "status": "true"
+    };
+
+    // firebase.database().ref('Documentaries').set(obj)
+
+    // firebase.database().ref().child('Anime').set({
+    //     type: '------',
+    //     publish: '======'
+    // });
     // firebase.auth().signOut();
 }, reason => {
     console.log(reason);
@@ -34,7 +70,7 @@ firebase.auth().onAuthStateChanged(user => {
         // User is signed in.
         let isAnonymous = user.isAnonymous,
             uid = user.uid;
-        
+
         console.log(isAnonymous);
         console.log(uid);
     } else {

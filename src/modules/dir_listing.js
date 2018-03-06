@@ -5,15 +5,13 @@ import dirFilter from './dir_filter';
 import dirCreation from './dir_creation';
 import dirRenaming from './dir_renaming';
 
-export default function dirTraversing(dir) {
+export default function dirListing(dir) {
+    const rootFolders = ['Anime', 'Documentaries', 'Misc', 'Movies', 'NHK', 'The Grand Tour', 'TV Series'];
     let files = fs.readdirSync(dir).sort(),
         isLeaf = true;
 
     // Check whether the current directory is a leaf (has no subdirectory).
     for (let j in files) {
-        
-        // TODO: Delete all .nfo, .txt and .jpg files in here
-
         if (fs.statSync(dir + '/' + files[j]).isDirectory()) {
             isLeaf = false;
             break;
@@ -43,7 +41,7 @@ export default function dirTraversing(dir) {
              * The current item is a FOLDER, and is cleared by dirFilter.
              * Then keep traversing recursively until reaching a leaf.
              */
-            if (dirTraversing(dir + '/' + files[i])) { // RECURSIVE CALL
+            if (dirListing(dir + '/' + files[i])) { // RECURSIVE CALL
                 /** (corresponding to 'return true' from above)
                  * Path "dir + '/' + files[i]" has no subdirectory, which means the current
                  * directory (files[i]) is a leaf, then process current directory's name.
