@@ -3,7 +3,7 @@
 export default function dirFilter(file) {
     file = file.toLowerCase() || '';
 
-    const rootFolders = ['Anime', 'Documentaries', 'Misc', 'Movies', 'NHK', 'The Grand Tour', 'TV Series'];
+    const rootFolders = ['Animations', 'Documentaries', 'Movies', 'TV'];
 
     for (let i in rootFolders) {
         if (file.includes(rootFolders[i].toLowerCase())) {

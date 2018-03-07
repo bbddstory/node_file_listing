@@ -19,7 +19,7 @@ export default function dirTraversing(dir) {
             // break;
         } else {
             // Delete unwanted files
-            const targets = ['.torrent', '.nfo', '.txt', '.jpg', '.png', '.gif'];
+            const targets = ['.torrent', '.nfo', '.png', '.gif'];
             let ext = path.extname(dir + '/' + files[j]);
 
             for (let k in targets) {

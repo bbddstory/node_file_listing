@@ -52,7 +52,7 @@ authPromise.then(() => {
 
     // firebase.database().ref('Documentaries').set(obj)
 
-    // firebase.database().ref().child('Anime').set({
+    // firebase.database().ref().child('Animations').set({
     //     type: '------',
     //     publish: '======'
     // });
