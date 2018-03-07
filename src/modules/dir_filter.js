@@ -4,7 +4,7 @@ export default function dirFilter(file) {
     file = file.toLowerCase() || '';
 
     const startsWith = ['SYNO', '#', '_'],
-        equalsTo = ['Misc', 'Subs'],
+        equalsTo = ['_TEMP', 'Misc', 'Subs'],
         endsWith = ['.txt', '.ini', '.cfg', '.db', 'SynoEAStream'];
 
     for (let i in startsWith) {

@@ -1,11 +1,15 @@
 "use strict";
 
 export default function catParser(type, title) {
-    let arr = title.split(' - ')
-    year = 'n/a';
+    let arr = title.split(' - '),
+        year = 'n/a', production = 'n/a';
 
     if (arr[0].length === 4 && arr[0].match(/[\d]{4}/)) {
-        year = arr[0];
+        year = arr[0]
+    }
+
+    if (type.toLowerCase() === 'documentaries' && arr.length === 3) {
+        production = arr[1]
     }
 
     switch (type.toLowerCase()) {
@@ -16,21 +20,13 @@ export default function catParser(type, title) {
                 "year": year,
                 "production": "n/a",
                 "status": "true"
-            }
+            };
         case 'documentaries':
             return {
                 "type": "Documentary",
                 "title": arr[1],
                 "year": year,
-                "production": "n/a",
-                "status": "true"
-            }
-        case 'misc':
-            return {
-                "type": "Misc",
-                "title": arr[1],
-                "year": year,
-                "production": "n/a",
+                "production": production,
                 "status": "true"
             };
         case 'movies':
@@ -67,12 +63,6 @@ export default function catParser(type, title) {
                 "status": "true"
             };
         default:
-            return {
-                "type": type,
-                "title": title,
-                "year": "n/a",
-                "production": "n/a",
-                "status": "false"
-            };
+            return {};
     }
 }
