@@ -1,73 +1,63 @@
 "use strict";
 
 import fs from 'fs';
-import dirFilter from './dir_filter';
-import dirCreation from './dir_creation';
-import dirRenaming from './dir_renaming';
+import catFilter from './cat_filter';
 
 export default function dirListing(dir) {
-    const rootFolders = ['Anime', 'Documentaries', 'Misc', 'Movies', 'NHK', 'The Grand Tour', 'TV Series'];
-    let files = fs.readdirSync(dir).sort(),
-        isLeaf = true;
-
-    // Check whether the current directory is a leaf (has no subdirectory).
-    for (let j in files) {
-        if (fs.statSync(dir + '/' + files[j]).isDirectory()) {
-            isLeaf = false;
-            break;
-        }
-    }
+    let items,
+        catObj = {},
+        files = fs.readdirSync(dir).sort();
 
     /**
-     * If all items in current directory are files, then it's a leaf, in
-     * which case do nothing and return true. This is the only way I can
-     * think of at the moment. Otherwise there's no way to distinguish 
-     * between a folder containing multiple different videos and a folder
-     * containing multiple videos of the same serie.
-     * 
-     * This means that, a folder must contain at least one subdirectory
-     * in order to trigger the renaming process in that folder.
-     */
-    if (isLeaf) {
-        return true
-    }
-
-    /**
-     * Process items in the current directory
+     * Process items in current directory
      */
     for (let i in files) {
-        if (fs.statSync(dir + '/' + files[i]).isDirectory() && dirFilter(files[i])) {
-            /**
-             * The current item is a FOLDER, and is cleared by dirFilter.
-             * Then keep traversing recursively until reaching a leaf.
-             */
-            if (dirListing(dir + '/' + files[i])) { // RECURSIVE CALL
-                /** (corresponding to 'return true' from above)
-                 * Path "dir + '/' + files[i]" has no subdirectory, which means the current
-                 * directory (files[i]) is a leaf, then process current directory's name.
-                 * 
-                 * dirRenaming returns the new folder name to update the current files[i],
-                 * Otherwise the folder path will no longer be available, which will
-                 * cause no such file error.
-                 */
-                files[i] = dirRenaming(dir, files[i])
-            }
-        }
+        if (catFilter(files[i])) {
+            catObj[files[i]] = {};
+            items = fs.readdirSync(dir + '/' + files[i]);
 
-        if (fs.statSync(dir + '/' + files[i]).isFile()) {
-            /**
-             * The current item is a FILE, move it in a folder with the same, only
-             * without the extension (suffix). Then process the folder name.
-             */
-            let folderName = dirCreation(dir, files[i]);
-            /**
-             * Rename the folder, keep the file with it's original name for reference.
-             * 
-             * dirRenaming returns the new folder name to update the current files[i],
-             * Otherwise the folder path will no longer be available, which will
-             * cause no such file error.
-             */
-            files[i] = dirRenaming(dir, folderName);
+            switch (files[i]) {
+                case 'Documentaries':
+                    for (let j in items) {
+                        catObj[files[i]][items[j]] = {
+                            "type": files[i],
+                            "title": items[j],
+                            "year": '1990',
+                            "production": 'NHK',
+                            "status": "true"
+                        }
+                    }
+                    break;
+                case 'Movies':
+                    for (let j in items) {
+                        catObj[files[i]][items[j]] = {
+                            "imdb_id": "",
+                            "title": items[j],
+                            "year": "1995",
+                            "runtime": "106 min",
+                            "genre": "Crime, Drama, Mystery",
+                            "director": "Bryan Singer",
+                            "writers": "Christopher McQuarrie",
+                            "actors": "Kevin Spacey , Gabriel Byrne , Chazz Palminteri",
+                            "plot": "Following a truck hijack in New York, five conmen are arrested and brought together for questioning. As none of them are guilty, they plan a revenge operation against the police. The operation goes well, but then the influence of a legendary mastermind criminal called Keyser Söze is felt. It becomes clear that each one of them has wronged Söze at some point and must pay back now. The payback job leaves 27 men dead in a boat explosion, but the real question arises now: Who actually is Keyser Söze?",
+                            "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                            "rating": "8.6",
+                            "type": "movie",
+                            "status": "true"
+                        }
+                    }
+                    break;
+                default:
+                    catObj[files[i]][items[j]] = {
+                        "type": files[i],
+                        "title": items[j],
+                        "status": "false"
+                    }
+                    break;
+            }
+
         }
     }
+
+    return catObj;
 }

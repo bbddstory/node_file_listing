@@ -3,7 +3,7 @@
 export default function dirFilter(file) {
     file = file.toLowerCase() || '';
 
-    let startsWith = ['SYNO', '#', '_'],
+    const startsWith = ['SYNO', '#', '_'],
         equalsTo = ['Anime', 'Misc', 'TV Series', 'The Grand Tour', 'Subs'],
         endsWith = ['.txt', '.ini', '.cfg', '.db', 'SynoEAStream'];
 

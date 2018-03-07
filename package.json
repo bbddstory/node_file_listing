@@ -19,8 +19,7 @@
   },
   "homepage": "https://github.com/bbddstory/node_file_listing#readme",
   "dependencies": {
-    "firebase": "^4.10.1",
-    "imdbapi": "^1.0.5"
+    "firebase": "^4.10.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

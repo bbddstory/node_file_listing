@@ -1,7 +1,6 @@
 'use strict';
 
 import firebase from 'firebase';
-import randomIMDB from 'imdbapi';
 
 const config = {
     apiKey: "AIzaSyDM7aH-HGeu6e0F6IKjgy0gjeoeTqkLGOc",
@@ -23,9 +22,6 @@ let authPromise = firebase.auth().signInWithEmailAndPassword(email, password).ca
 });
 
 authPromise.then(() => {
-    let imdb = new randomIMDB('VBjlW8MCQh32XXubjUKYLGu3fiIFkD');
-    randomIMDB(console.log);
-
     // firebase.database().ref('Documentaries').once('value').then(function (snapshot) {
     //     let value = snapshot.val();
     //     console.log(value);

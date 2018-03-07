@@ -1,0 +1,138 @@
+{
+    "Documentaries": {
+        "2016 - Tsukiji Wonderland": {
+            "type": "Documentaries",
+            "title": "2016 - Tsukiji Wonderland",
+            "year": "1990",
+            "production": "NHK",
+            "status": "true"
+        },
+        "2017 - AlphaGo": {
+            "type": "Documentaries",
+            "title": "2017 - AlphaGo",
+            "year": "1990",
+            "production": "NHK",
+            "status": "true"
+        },
+        "BBC - Attenboroughs Life That Glows": {
+            "type": "Documentaries",
+            "title": "BBC - Attenboroughs Life That Glows",
+            "year": "1990",
+            "production": "NHK",
+            "status": "true"
+        },
+        "BBC - Big Cats": {
+            "type": "Documentaries",
+            "title": "BBC - Big Cats",
+            "year": "1990",
+            "production": "NHK",
+            "status": "true"
+        },
+        "BBC - Six Robots and Us": {
+            "type": "Documentaries",
+            "title": "BBC - Six Robots and Us",
+            "year": "1990",
+            "production": "NHK",
+            "status": "true"
+        },
+        "BBC - Stealing Van Gogh": {
+            "type": "Documentaries",
+            "title": "BBC - Stealing Van Gogh",
+            "year": "1990",
+            "production": "NHK",
+            "status": "true"
+        }
+    },
+    "Movies": {
+        "1962 - Lajetée": {
+            "imdb_id": "",
+            "title": "1962 - Lajetée",
+            "year": "1995",
+            "runtime": "106 min",
+            "genre": "Crime, Drama, Mystery",
+            "director": "Bryan Singer",
+            "writers": "Christopher McQuarrie",
+            "actors": "Kevin Spacey , Gabriel Byrne , Chazz Palminteri",
+            "plot": "Following a truck hijack in New York, five conmen are arrested and brought together for questioning. As none of them are guilty, they plan a revenge operation against the police. The operation goes well, but then the influence of a legendary mastermind criminal called Keyser Söze is felt. It becomes clear that each one of them has wronged Söze at some point and must pay back now. The payback job leaves 27 men dead in a boat explosion, but the real question arises now: Who actually is Keyser Söze?",
+            "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+            "rating": "8.6",
+            "type": "movie",
+            "status": "true"
+        },
+        "1966 - The Face of Another": {
+            "imdb_id": "",
+            "title": "1966 - The Face of Another",
+            "year": "1995",
+            "runtime": "106 min",
+            "genre": "Crime, Drama, Mystery",
+            "director": "Bryan Singer",
+            "writers": "Christopher McQuarrie",
+            "actors": "Kevin Spacey , Gabriel Byrne , Chazz Palminteri",
+            "plot": "Following a truck hijack in New York, five conmen are arrested and brought together for questioning. As none of them are guilty, they plan a revenge operation against the police. The operation goes well, but then the influence of a legendary mastermind criminal called Keyser Söze is felt. It becomes clear that each one of them has wronged Söze at some point and must pay back now. The payback job leaves 27 men dead in a boat explosion, but the real question arises now: Who actually is Keyser Söze?",
+            "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+            "rating": "8.6",
+            "type": "movie",
+            "status": "true"
+        },
+        "1986 - Pretty in Pink": {
+            "imdb_id": "",
+            "title": "1986 - Pretty in Pink",
+            "year": "1995",
+            "runtime": "106 min",
+            "genre": "Crime, Drama, Mystery",
+            "director": "Bryan Singer",
+            "writers": "Christopher McQuarrie",
+            "actors": "Kevin Spacey , Gabriel Byrne , Chazz Palminteri",
+            "plot": "Following a truck hijack in New York, five conmen are arrested and brought together for questioning. As none of them are guilty, they plan a revenge operation against the police. The operation goes well, but then the influence of a legendary mastermind criminal called Keyser Söze is felt. It becomes clear that each one of them has wronged Söze at some point and must pay back now. The payback job leaves 27 men dead in a boat explosion, but the real question arises now: Who actually is Keyser Söze?",
+            "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+            "rating": "8.6",
+            "type": "movie",
+            "status": "true"
+        },
+        "1995 - The Net": {
+            "imdb_id": "",
+            "title": "1995 - The Net",
+            "year": "1995",
+            "runtime": "106 min",
+            "genre": "Crime, Drama, Mystery",
+            "director": "Bryan Singer",
+            "writers": "Christopher McQuarrie",
+            "actors": "Kevin Spacey , Gabriel Byrne , Chazz Palminteri",
+            "plot": "Following a truck hijack in New York, five conmen are arrested and brought together for questioning. As none of them are guilty, they plan a revenge operation against the police. The operation goes well, but then the influence of a legendary mastermind criminal called Keyser Söze is felt. It becomes clear that each one of them has wronged Söze at some point and must pay back now. The payback job leaves 27 men dead in a boat explosion, but the real question arises now: Who actually is Keyser Söze?",
+            "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+            "rating": "8.6",
+            "type": "movie",
+            "status": "true"
+        },
+        "1997 - Abre Los Ojos": {
+            "imdb_id": "",
+            "title": "1997 - Abre Los Ojos",
+            "year": "1995",
+            "runtime": "106 min",
+            "genre": "Crime, Drama, Mystery",
+            "director": "Bryan Singer",
+            "writers": "Christopher McQuarrie",
+            "actors": "Kevin Spacey , Gabriel Byrne , Chazz Palminteri",
+            "plot": "Following a truck hijack in New York, five conmen are arrested and brought together for questioning. As none of them are guilty, they plan a revenge operation against the police. The operation goes well, but then the influence of a legendary mastermind criminal called Keyser Söze is felt. It becomes clear that each one of them has wronged Söze at some point and must pay back now. The payback job leaves 27 men dead in a boat explosion, but the real question arises now: Who actually is Keyser Söze?",
+            "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+            "rating": "8.6",
+            "type": "movie",
+            "status": "true"
+        },
+        "2010 - Rubber": {
+            "imdb_id": "",
+            "title": "2010 - Rubber",
+            "year": "1995",
+            "runtime": "106 min",
+            "genre": "Crime, Drama, Mystery",
+            "director": "Bryan Singer",
+            "writers": "Christopher McQuarrie",
+            "actors": "Kevin Spacey , Gabriel Byrne , Chazz Palminteri",
+            "plot": "Following a truck hijack in New York, five conmen are arrested and brought together for questioning. As none of them are guilty, they plan a revenge operation against the police. The operation goes well, but then the influence of a legendary mastermind criminal called Keyser Söze is felt. It becomes clear that each one of them has wronged Söze at some point and must pay back now. The payback job leaves 27 men dead in a boat explosion, but the real question arises now: Who actually is Keyser Söze?",
+            "poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+            "rating": "8.6",
+            "type": "movie",
+            "status": "true"
+        }
+    }
+}
