@@ -1,8 +1,14 @@
-"use strict";
+'use strict';
+
+import nameToImdb from "name-to-imdb";
+import imdb from "imdb";
+import "babel-polyfill";
 
 export default function catParser(type, item) {
     let arr = item.split(' - '),
-        title = 'n/a', year = 'n/a', production = 'n/a';
+        title = 'n/a',
+        year = 'n/a',
+        prod = 'n/a';
 
     if (arr[0].length === 4 && arr[0].match(/[\d]{4}/)) {
         year = arr[0]
@@ -10,7 +16,7 @@ export default function catParser(type, item) {
 
     if (type.toLowerCase() === 'documentaries' && arr.length === 3) {
         title = arr[2];
-        production = arr[1];
+        prod = arr[1];
     } else {
         title = arr[1]
     }
@@ -19,52 +25,70 @@ export default function catParser(type, item) {
         case 'animations':
             return {
                 'type': 'Animation',
-                'title': title,
                 'year': year,
-                'production': 'n/a',
+                'origTitle': title,
+                'engTitle': 'n/a',
                 'status': 'true'
             };
+            break;
         case 'documentaries':
             return {
                 'type': 'Documentary',
-                'title': title,
                 'year': year,
-                'production': production,
+                'prod': prod,
+                'title': title,
                 'status': 'true'
             };
+            break;
         case 'movies':
-            return {
-                'type': 'Movie',
-                'imdb_id': '',
-                'title': title,
-                'year': year,
-                'runtime': 'n/a',
-                'genre': 'n/a',
-                'production': 'n/a',
-                'director': 'n/a',
-                'writers': 'n/a',
-                'actors': 'n/a',
-                'plot': 'n/a',
-                'poster': 'n/a',
-                'rating': 'n/a',
-                'status': 'true'
-            };
-        case 'nhk':
-            return {
-                'type': 'NHK',
-                'title': title,
-                'year': year,
-                'production': 'n/a',
-                'status': 'true'
-            };
+            let meta = {};
+            const promise = new Promise((resolve, reject) => {
+                nameToImdb({
+                    name: title
+                }, async (err, res, inf) => {
+                    imdb(res, (err, data) => {
+                        if (data) {
+                            meta = {
+                                'type': 'Movie',
+                                'year': year,
+                                'origTitle': data.title,
+                                'engTitle': title,
+                                'director': data.director,
+                                'genre': data.genre,
+                                'contentRating': data.contentRating,
+                                'runtime': data.runtime,
+                                'plot': data.description,
+                                'imdb_id': res,
+                                'rating': data.rating,
+                                'poster': data.poster,
+                                'status': 'true'
+                            }
+                            resolve('success');
+                        } else {
+                            reject('No data.')
+                        }
+                    })
+                })
+            });
+
+            promise.then(() => {
+                console.log(meta.origTitle);
+                return meta;
+            }, (err) => {
+                console.log('Rejected: ', err);
+            }).catch((err) => {
+                console.log('Catched: ', err);
+            });
+            break;
         case 'tv':
             return {
                 'type': 'TV',
-                'title': title,
                 'year': year,
-                'production': 'n/a',
+                'origTitle': title,
+                'engTitle': 'n/a',
                 'status': 'true'
             };
+            break;
         default:
             return {};
     }
