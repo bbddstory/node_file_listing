@@ -13,18 +13,19 @@ export default function dirRenaming(dir, folderName) {
   }
 
   let oldFolderName = folderName,
-      tempArr = [], finalArr = [],
+      temp = [], final = [],
       hit = false, isPrep = false, hasYear = false,
       stopsAt = ['WEBRip', 'Xvid', 'DivX', '720p', '1080p', '1080i', 'PDTV', 'HDTV', 'BluRay', 'BDRip',
                 'iNTERNAL', 'D5', 'D9', 'YTS', 'DVDrip', 'Chi_Jap', '中文字幕', '双语字幕', 'HR-HDTV'],
-      prepArr = ['and', 'as', 'at', 'by', 'for', 'from', 'in', 'onto', 'of', 'on', 'to', 'the', 'with', 'via', 'vs'];
+      preps = ['and', 'as', 'at', 'by', 'for', 'from', 'in', 'onto', 'of', 'on', 'to', 'the', 'with', 'via', 'vs'],
+      prods = ['BBC', 'NHK', 'TBS'];
 
   folderName = folderName.replace(/(\(|\)|\[|\])/g, ''); // Replace anyone of (,),[,] with en empty string
   folderName = folderName.replace(/ +/g, '.'); // Replace one or more spaces with a dot
 
   let folderNameArr = folderName.split('.');
 
-  // Extract title and year
+  // Extract title and year into an array
   for (let i in folderNameArr) {
     if (!hit) {
       for (let j in stopsAt) {
@@ -33,72 +34,92 @@ export default function dirRenaming(dir, folderName) {
         }
       }
       if (!hit) {
-        tempArr.push(folderNameArr[i])
+        temp.push(folderNameArr[i])
       }
     }
   }
 
   // Format the extracted title
-  for (let m in tempArr) {
+  for (let m in temp) {
     // Check whether the word is prepositional
-    for (let n in prepArr) {
-      if (tempArr[m].toLowerCase() === prepArr[n]) {
+    for (let n in preps) {
+      if (temp[m].toLowerCase() === preps[n]) {
         isPrep = true
       }
     }
     
     if (isPrep) {
       // If it is, decapitalise.
-      tempArr[m] = tempArr[m][0].toLowerCase() + tempArr[m].substr(1)
+      temp[m] = temp[m][0].toLowerCase() + temp[m].substr(1)
     } else {
       // If it's not, capitalise.
-      tempArr[m] = tempArr[m][0].toUpperCase() + tempArr[m].substr(1)
+      temp[m] = temp[m][0].toUpperCase() + temp[m].substr(1)
     }
     
     // Change serial index e.g. '1of3' to the format of '(1 of 3)'
-    if (tempArr[m].match(/[\d]+of[\d]+/g)) {
-      tempArr[m] = '(' + tempArr[m].replace('of', ' of ') + ')'
+    if (temp[m].match(/[\d]+of[\d]+/g)) {
+      temp[m] = '(' + temp[m].replace('of', ' of ') + ')'
     }
 
     isPrep = false;
   }
 
   // Extract YEAR and push it to the final string array
-  for (let k in tempArr) {
-    if (tempArr[k].match(/[\d]{4}/g)) {
-      finalArr.push(tempArr[k]);
-      finalArr.push('-'); // Add SEPARATOR '-'
-      tempArr.splice(k, 1); // Remove the year item from temp array
+  for (let k in temp) {
+    if (temp[k].match(/[\d]{4}/g)) {
+      final.push(temp[k]);
+      final.push('-'); // Add hyphen
+      temp.splice(k, 1); // Remove the year item from temp array
       hasYear = true;
       break;
     }
   }
 
   // Form the final array by concatenating final and temp array
-  finalArr = finalArr.concat(tempArr);
+  final = final.concat(temp);
 
   /**
-   * If there's no year in folder name, use production company name 
-   * as the leading part.
+   * If there's no year, use production as the leading part.
    * 
    * The assumption is that there're two kinds of folder name, movie
-   * and documentary. Movie names almost always have year in them
-   * (occasionally they do not), and documentary most sometimes do,
-   * but always have a production company name.
+   * and documentary. Movies almost always have year in them
+   * (occasionally they do not), and documentaries sometimes do,
+   * but always have a production name.
    */
-  if (!hasYear && finalArr.length > 1) {
-    // At position 1, remove 0 item, and add separate '-'.
-    finalArr.splice(1, 0, '-');
+  if (!hasYear && final.length > 1) {
+    // At position 1, remove 0 item, and add hyphen.
+    final.splice(1, 0, '-');
+    // Capitalise the following word
+    final[2] = final[2][0].toUpperCase() + final[2].substr(1);
   }
 
   /**
-   * finalArr should be in one of these formats:
+   * This is for when documentary names contain both year and production.
+   * In which case, insert a hyphen after production and capitalise the
+   * following word.
+   */
+  for (let m in final) {
+    for (let n in prods) {
+      if (final[m].toLowerCase() === prods[n].toLowerCase()) {
+        // Capitalise production in case it's not
+        final[m] = final[m].toUpperCase();
+        // At position m + 1, remove 0 item, and add hyphen.
+        final.splice(Number(m) + 1, 0, '-');
+        // Capitalise the word following the newly added hyphen
+        final[Number(m) + 2] = final[Number(m) + 2][0].toUpperCase() + final[Number(m) + 2].substr(1);
+      }
+    }
+  }
+
+  /**
+   * final array should be in one of these formats:
    * YEAR,-,TITLE
    * PRODUCTION,-,TITLE
+   * YEAR,-,PRODUCTION,-,TITLE
    */
-  let newFolderName = finalArr.join(' ').replace(/ - the/g, ' - The');
+  let newFolderName = final.join(' ');
 
-  // console.log(dir + '/' + oldFolderName, dir + '/' + newFolderName);
+  // console.log(dir + '/' + oldFolderName, '\n', dir + '/' + newFolderName);
   fs.renameSync(dir + '/' + oldFolderName, dir + '/' + newFolderName);
 
   /**

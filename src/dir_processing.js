@@ -9,4 +9,4 @@ import dirTraversing from './modules/dir_traversing';
 
 dirTraversing(process.argv[2]);
 
-console.log('\n-- Processing completed.');
+console.log('\n-- Processing completed.\n');
