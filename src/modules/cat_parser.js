@@ -40,25 +40,29 @@ export default function catParser(forRes, forRej, type, item) {
             });
             break;
         case 'movies':
+            console.log('→ ' + year, title);
             nameToImdb({ name: title, year: year, type: 'movie' }, (err, res, inf) => {
-                imdb(res, (err, data) => {
-                    if (data) {
-                        console.log(res);
-                        forRes({
-                            'type': 'Movie', 'year': year,
-                            'origTitle': data.title, 'engTitle': title,
-                            'director': data.director,
-                            'contentRating': data.contentRating,
-                            'runtime': data.runtime,
-                            'plot': data.description,
-                            'imdb_id': res, 'rating': data.rating,
-                            'poster': data.poster,
-                            'status': 'true'
-                        });
-                    } else {
-                        forRej('No meta data.')
-                    }
-                })
+                if (res) { // nameToImdb could return null when there's no match found
+                    imdb(res, (err, data) => {
+                        if (data) {
+                            forRes({
+                                'type': 'Movie', 'year': year,
+                                'origTitle': data.title, 'engTitle': title,
+                                'director': data.director,
+                                'contentRating': data.contentRating,
+                                'runtime': data.runtime,
+                                'plot': data.description,
+                                'imdb_id': res, 'rating': data.rating,
+                                'poster': data.poster,
+                                'status': 'true'
+                            });
+                        } else {
+                            forRej('No match from imdb.')
+                        }
+                    })
+                } else {
+                    forRej('No match from nameToImdb.')
+                }
             })
             break;
         case 'tv':

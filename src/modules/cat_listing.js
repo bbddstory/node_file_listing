@@ -1,11 +1,13 @@
 'use strict';
 
 import fs from 'fs';
+import ora from 'ora';
 import catFilter from './cat_filter';
 import catParser from './cat_parser';
 import 'babel-polyfill';
 
 export default async function catListing(uploadRes, uploadRej, dir) {
+    const spinner = ora('Loading...');
     let files = fs.readdirSync(dir).sort(),
         items = [],
         catObj = {};
@@ -19,13 +21,17 @@ export default async function catListing(uploadRes, uploadRej, dir) {
             items = fs.readdirSync(dir + '/' + files[i]);
             for (let j in items) {
                 await new Promise((res, rej) => {
-                    catParser(res, rej, files[i], items[j])
+                    catParser(res, rej, files[i], items[j]);
+                    spinner.start();
                 }).then(value => {
-                    catObj[files[i]][items[j]] = value
+                    spinner.succeed('Successful');
+                    catObj[files[i]][items[j]] = value;
                 }, reason => {
-                    console.log('Rejected: ', reason);
+                    spinner.stop('Rejected');
+                    console.log('∞ Rejected: ', reason);
                 }).catch(err => {
-                    console.log('Catched: ', err);
+                    spinner.fail('Failed');
+                    console.log('∞ Catched: ', err);
                 })
             }
         }
