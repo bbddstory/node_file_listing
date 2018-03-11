@@ -42,7 +42,7 @@ authPromise.then(() => {
     console.log('\n');
 
     new Promise((res, rej) => {
-        catListing(res, rej, process.argv[2])
+        catListing(res, rej, process.argv[2], firebase)
     }).then(catObj => {
         console.log('\n∩ Listing completed.');
 
@@ -58,9 +58,11 @@ authPromise.then(() => {
             }
         }
     }, reason => {
-        console.log('∞ Rejected: ', reason)
+        console.log('∞ Rejected:', reason);
+        process.exit(-1);
     }).catch(err => {
-        console.log('∞ Catched: ', err)
+        console.log('∞ Catched:', err);
+        process.exit(-1);
     });
 }, reason => {
     console.log(reason)

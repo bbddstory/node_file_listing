@@ -35,15 +35,29 @@ let authPromise = firebase.auth().signInWithEmailAndPassword(email, password).ca
 });
 
 authPromise.then(() => {
-    // firebase.database().ref('Documentaries').once('value').then((snapshot) => {
-    //     let value = snapshot.val();
-    //     console.log(value);
-    // });
-
-    firebase.database().ref('Documentaries').orderByChild('year').equalTo('2017').once('value').then((snapshot) => {
+    firebase.database().ref('Documentaries').once('value').then((snapshot) => {
         let value = snapshot.val();
-        console.log(value);
+        let c = 1;
+        
+        for(let i in value) {
+            console.log(c);
+            c = c + 1;
+            
+            for(let j in value) {
+                if(i !== j && value[i].engTitle.toLowerCase() === value[j].engTitle.toLowerCase()) {
+                    console.log(value[i]);
+                    console.log('\n');
+                }
+            }
+        }
     });
+
+    // firebase.database().ref('Animations').orderByChild('engTitle').equalTo('Neo Tokyo').once('value').then(snapshot => {
+    //     console.log('then()\n')
+    //     console.log(snapshot.val())
+    // }, fail => {
+    //     console.log('then() failed\n')
+    // });
 
     // Both of the following commands work
     // firebase.database().ref('Documentaries/-L71xVTXsB-f6q1PxXoF/production').set('BBC');

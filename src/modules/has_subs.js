@@ -12,7 +12,8 @@ import fsx from 'fs-extra';
 export default function hasSubs(dir, files) {
     for (let i in files) {
         if (files[i].toLowerCase() === 'subs') {
-            fsx.moveSync(dir + '/' + files[i], dir);
+            // For reasons unknown, fsx.move() doesn't work.
+            fsx.copySync(dir + '/' + files[i], dir);
             fsx.removeSync(dir + '/' + files[i]);
 
             return true;
