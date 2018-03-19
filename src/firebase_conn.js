@@ -35,21 +35,28 @@ let authPromise = firebase.auth().signInWithEmailAndPassword(email, password).ca
 });
 
 authPromise.then(() => {
-    firebase.database().ref('Documentaries').once('value').then((snapshot) => {
+    firebase.database().ref('Movies')
+        // .orderByChild('year').startAt('2016').endAt('2017')
+        .orderByChild('index').startAt(12).endAt(23)
+        // .limitToFirst(3)
+        .once('value').then((snapshot) => {
         let value = snapshot.val();
         let c = 1;
+
+        console.log(value);
         
-        for(let i in value) {
-            console.log(c);
-            c = c + 1;
+        
+        // for(let i in value) {
+        //     console.log(c);
+        //     c = c + 1;
             
-            for(let j in value) {
-                if(i !== j && value[i].engTitle.toLowerCase() === value[j].engTitle.toLowerCase()) {
-                    console.log(value[i]);
-                    console.log('\n');
-                }
-            }
-        }
+        //     for(let j in value) {
+        //         if(i !== j && value[i].engTitle.toLowerCase() === value[j].engTitle.toLowerCase()) {
+        //             console.log(value[i]);
+        //             console.log('\n');
+        //         }
+        //     }
+        // }
     });
 
     // firebase.database().ref('Animations').orderByChild('engTitle').equalTo('Neo Tokyo').once('value').then(snapshot => {
@@ -65,5 +72,5 @@ authPromise.then(() => {
 
     // firebase.auth().signOut();
 }, reason => {
-    console.log(reason);
+    console.log(reason);    
 });
